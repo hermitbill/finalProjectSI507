@@ -1,0 +1,33 @@
+{% extends "layout.html"%}
+
+{% block content %}
+<!-- username, pass, con_pass,-->
+<div>
+    <form method="post" action="">
+        {{form.hidden_tag()}}
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{form.username.label}}</label>
+            {{form.username(class="form-control form-control-lg is-invalid", placeholder="")}}
+          
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">{{form.password.label}}</label>
+            {{form.password(class="form-control form-control-lg is-invalid", placeholder="")}}
+            <!-- <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="password"> -->
+          </div>
+          <div class="form-check">
+            {{form.stay_login(class="form-check-input")}}
+            {{form.stay_login.label(class="form-check-label")}}
+          </div>
+          <div>
+            {{form.submit(class="btn btn-outline-success")}}
+          </div>
+    </form>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already Have An Account? <a class="ml-2" href="{{url_for('login')}}">Sign In</a>
+    </small>
+
+</div>
+{% endblock content %}

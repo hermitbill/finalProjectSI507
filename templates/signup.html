@@ -1,0 +1,46 @@
+{% extends "layout.html"%}
+
+{% block content %}
+<!-- username, pass, con_pass,-->
+<div>
+    <form method="post" action="">
+        {{form.hidden_tag()}}
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">{{form.username.label}}</label>
+            {{form.username(class="form-control form-control-lg is-invalid", placeholder="must be at least 2 digits long")}}
+                <!-- {% if form.username.errors %} -->
+                <!-- {{form.username(class="form-control form-control-lg is-invalid")}} -->
+                <!-- <div class="invalid-feedback">
+                    {%for error in form.username.errors%}
+                    <span>{{error}}</span>
+                    {%endfor%}
+                </div>
+                {%else%}
+                    {{form.username(class="form-control-label form-control-lg")}}
+                {%endif%} -->
+            
+            <!-- <input type="text" class="form-control" id="formGroupExampleInput" placeholder="username"> -->
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">{{form.password.label}}</label>
+            {{form.password(class="form-control form-control-lg is-invalid", placeholder="must be 8 digits long")}}
+            <!-- <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="password"> -->
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">{{form.password_confirmation.label}}</label>
+            {{form.password_confirmation(class="form-control form-control-lg is-invalid")}}
+            <!-- <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="confirm password"> -->
+          </div>
+          <div>
+            {{form.submit(class="btn btn-outline-success")}}
+          </div>
+    </form>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already Have An Account? <a class="ml-2" href="{{url_for('login')}}">Sign In</a>
+    </small>
+
+</div>
+{% endblock content %}
+ 
